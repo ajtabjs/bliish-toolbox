@@ -18,7 +18,7 @@ options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wal
 option, index = pick(options)
 print(option)
 if index == 0:
-    prompt = input("what do you want to post?")
+    prompt = input("what do you want to post? ")
     post()
 elif index == 1:
     print("wip")
