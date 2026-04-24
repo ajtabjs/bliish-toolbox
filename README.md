@@ -7,6 +7,7 @@ A simple command line python program made with picks and requests.
 
 `python main.py`
 
+### how to find your bliish token
 The program asks for a user token before you start. This can be found in your browser cookies by using any extension that lets you view them.
 
 ![](./bliishtoken.png)
