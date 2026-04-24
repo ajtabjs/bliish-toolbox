@@ -23,7 +23,7 @@ def post():
 def bliip():
     response = requests.post(bliips, json=bliip_data, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
     print(response.text)
-options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. mass bliip a set of users", "5. exit"]
+options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall (json response, no parsing yet :P)", "4. mass bliip a set of users", "5. exit"]
 title = "welcome to bliish toolbox! made by aj"
 
 option, index = pick(options, title)
