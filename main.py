@@ -40,7 +40,7 @@ elif index == 2:
     response = requests.get(f"https://bliish.com/api/v1/profiles/{walls}/wall?fresh=1&limit=20", headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
     print(response.text)
 elif index == 3:
-    users = input(" usernames to bliip? (comma separated): ")
+    users = input(" usernames to bliip? (comma separated no spaces): ")
     for user in users.split(","):
         bliip_data["handle"] = user.strip()
         bliip()
