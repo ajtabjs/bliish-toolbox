@@ -13,13 +13,12 @@ def post():
     postdata["body"] = prompt
     response = requests.post(globalposts, json=postdata, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};"})
     print(response.text)
-print("welcome!")
 
 options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. exit"]
-option, index = pick(options, title)
+option= pick(options)
 
-if index == "1. make a post":
+if option == "1. make a post":
     prompt = input("what do you want to post?")
     post()
-elif index == "2. bliip a user":
+elif option == "2. bliip a user":
     print("wip")
