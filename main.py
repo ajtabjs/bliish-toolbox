@@ -8,9 +8,10 @@ postdata = {
     "client_mutation_id": "ajs-bliishtoolbox"
 }
 
+tokenprompt = input("enter your bliish token (sb-prkqirdzadljdpkrvjvz-auth-token): ")
 def post():
     postdata["body"] = prompt
-    response = requests.post(globalposts, json=postdata)
+    response = requests.post(globalposts, json=postdata, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};"})
     print(response.text)
 print("welcome!")
 
@@ -20,4 +21,4 @@ if index == 0:
 prompt = input("what do you want to post?")
 post()
 elif index == 1:
-
+    print("wip")
