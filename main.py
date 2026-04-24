@@ -2,8 +2,17 @@ from pick import pick
 import requests
 import sys
 
+tokenprompt = input("enter your bliish token (sb-prkqirdzadljdpkrvjvz-auth-token): ")
+
+
 globalposts = "https://bliish.com/api/v1/posts"
 bliips = "https://bliish.com/api/v1/bliips"
+
+headers = {
+    "cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};",
+    "origin": "https://bliish.com",
+    "referer": "https://bliish.com"
+}
 
 postdata = {
     "body": "",
@@ -14,14 +23,13 @@ bliip_data = {
     "handle": ""
 }
 
-tokenprompt = input("enter your bliish token (sb-prkqirdzadljdpkrvjvz-auth-token): ")
 def post():
     postdata["body"] = prompt
-    response = requests.post(globalposts, json=postdata, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
+    response = requests.post(globalposts, json=postdata, headers=headers)
     print(response.text)
 
 def bliip():
-    response = requests.post(bliips, json=bliip_data, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
+    response = requests.post(bliips, json=bliip_data, headers=headers)
     print(response.text)
 options = ["1. make a post", "2. comment on a post", "3. bliip a user", "4. get posts from someone's wall (json response, no parsing yet :P)", "5. mass bliip a set of users", "6. exit"]
 title = "welcome to bliish toolbox! made by aj"
@@ -39,10 +47,10 @@ elif index == 1:
     postid = input("post id to comment on? (obtained via url so https://blii.sh/p/QZQXftQz would be an example)")
     comment = input("thing to say: ")
     postdata["body"] = comment
-    response = requests.post(f"https://bliish.com/api/v1/posts/{postid}/comments", json=postdata, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
+    response = requests.post(f"https://bliish.com/api/v1/posts/{postid}/comments", json=postdata, headers=headers)
 elif index == 3:
     walls = input("username to get posts from? ")
-    response = requests.get(f"https://bliish.com/api/v1/profiles/{walls}/wall?fresh=1&limit=20", headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
+    response = requests.get(f"https://bliish.com/api/v1/profiles/{walls}/wall?fresh=1&limit=20", headers=headers)
     print(response.text)
 elif index == 4:
     users = input("usernames to bliip? (comma separated no spaces): ")
