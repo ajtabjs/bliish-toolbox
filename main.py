@@ -15,7 +15,7 @@ def post():
     print(response.text)
 
 options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. exit"]
-option= pick(options)
+option = pick(options)
 
 if option == "1. make a post":
     prompt = input("what do you want to post?")
