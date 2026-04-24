@@ -23,7 +23,7 @@ def post():
 def bliip():
     response = requests.post(bliips, json=bliip_data, headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
     print(response.text)
-options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. exit"]
+options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. mass bliip a set of users", "5. exit"]
 title = "welcome to bliish toolbox! made by aj"
 
 option, index = pick(options, title)
@@ -40,4 +40,9 @@ elif index == 2:
     response = requests.get(f"https://bliish.com/api/v1/profiles/{walls}/wall?fresh=1&limit=20", headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
     print(response.text)
 elif index == 3:
+    users = input(" usernames to bliip? (comma separated): ")
+    for user in users.split(","):
+        bliip_data["handle"] = user.strip()
+        bliip()
+elif index == 4:
     sys.exit()
