@@ -16,9 +16,10 @@ def post():
 print("welcome!")
 
 options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. exit"]
+option, index = pick(options, title)
 
-if index == 0:
-prompt = input("what do you want to post?")
-post()
-elif index == 1:
+if index == "1. make a post":
+    prompt = input("what do you want to post?")
+    post()
+elif index == "2. bliip a user":
     print("wip")
