@@ -15,10 +15,10 @@ def post():
     print(response.text)
 
 options = ["1. make a post", "2. bliip a user", "3. get posts from someone's wall", "4. exit"]
-option = pick(options)
+option, index = pick(options)
 print(option)
-if option == 0:
+if index == 0:
     prompt = input("what do you want to post?")
     post()
-elif option == 1:
+elif index == 1:
     print("wip")
