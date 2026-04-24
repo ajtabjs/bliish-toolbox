@@ -1,5 +1,6 @@
 from pick import pick
 import requests
+import sys
 
 globalposts = "https://bliish.com/api/v1/posts"
 bliips = "https://bliish.com/api/v1/bliips"
@@ -38,3 +39,5 @@ elif index == 2:
     walls = input("username to get posts from? ")
     response = requests.get(f"https://bliish.com/api/v1/profiles/{walls}/wall?fresh=1&limit=20", headers={"cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};", "origin": "https://bliish.com", "referer": "https://bliish.com"})
     print(response.text)
+elif index == 3:
+    sys.exit()
