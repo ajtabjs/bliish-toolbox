@@ -16,7 +16,8 @@ bliips = "https://bliish.com/api/v1/bliips"
 headers = {
     "cookie": f"sb-prkqirdzadljdpkrvjvz-auth-token={tokenprompt};",
     "origin": "https://bliish.com",
-    "referer": "https://bliish.com"
+    "referer": "https://bliish.com",
+    "content-type": "application/json"
 }
 
 postdata = {
