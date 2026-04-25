@@ -1,6 +1,11 @@
 from pick import pick
 import requests
 import sys
+import requests
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
 
 tokenprompt = input("enter your bliish token (sb-prkqirdzadljdpkrvjvz-auth-token): ")
 
